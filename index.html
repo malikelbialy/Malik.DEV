@@ -2,594 +2,348 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Malik El-Bialy | مطوّر ويب وتطبيقات</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malik El-Bialy — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #050508;
-  --surface: #0c0c12;
-  --card: #111118;
-  --card2: #16161f;
-  --accent: #6c63ff;
-  --accent2: #a78bfa;
-  --accent3: #38bdf8;
-  --white: #eeedf2;
-  --muted: #6b6b80;
-  --border: rgba(108,99,255,0.18);
-  --glow: rgba(108,99,255,0.07);
-  --success: #2ecc71;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:"Tajawal",sans-serif;overflow-x:hidden;}
+  :root{
+    --ink: #14171c;
+    --ink-2: #1b1f26;
+    --paper: #f6f4ef;
+    --line: rgba(20,23,28,0.14);
+    --line-dark: rgba(246,244,239,0.16);
+    --brass: #b28a3d;
+    --brass-soft: #d9b876;
+    --muted: #6b7078;
+  }
 
-/* CURSOR GLOW */
-.cursor-glow{
-  position:fixed;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(108,99,255,0.06) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;z-index:0;
-  transform:translate(-50%,-50%);transition:all 0.1s linear;
-}
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(5,5,8,0.75);backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--border);
-}
-.nav-logo{
-  font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1rem;
-  color:var(--white);letter-spacing:2px;
-  display:flex;align-items:center;gap:0.5rem;
-}
-.nav-logo-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulseDot 2s infinite;}
-@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(108,99,255,0.6);}50%{box-shadow:0 0 0 6px rgba(108,99,255,0);}}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.3s;letter-spacing:0.5px;}
-.nav-links a:hover{color:var(--white);}
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    font-weight:400;
+  }
 
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:8rem 3rem 4rem;position:relative;overflow:hidden;
-}
-.hero-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.15;}
-.orb1{width:600px;height:600px;background:var(--accent);top:-100px;right:-100px;}
-.orb2{width:400px;height:400px;background:var(--accent3);bottom:-50px;left:-50px;opacity:0.08;}
-.orb3{width:300px;height:300px;background:#ec4899;top:50%;left:30%;opacity:0.05;}
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
 
-.hero-inner{
-  max-width:1200px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 340px;gap:5rem;
-  align-items:center;position:relative;z-index:1;
-}
+  .display{ font-family:'Markazi Text', serif; }
+  .mono{ font-family:'JetBrains Mono', monospace; direction:ltr; display:inline-block; }
 
-.hero-chip{
-  display:inline-flex;align-items:center;gap:0.6rem;
-  background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);
-  border-radius:100px;padding:0.45rem 1.1rem;font-size:0.78rem;
-  color:var(--accent2);margin-bottom:1.8rem;font-weight:600;letter-spacing:0.5px;
-  animation:fadeUp 0.7s ease both;animation-delay:0.1s;
-}
-.chip-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 6px #4ade80;}
+  .wrap{ max-width: 1080px; margin:0 auto; padding: 0 28px; }
 
-.hero-name{
-  font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:700;
-  line-height:1.05;margin-bottom:0.5rem;
-  animation:fadeUp 0.7s ease both;animation-delay:0.25s;
-}
-.hero-name-ar{
-  font-family:"Tajawal",sans-serif;font-size:clamp(1rem,2vw,1.3rem);
-  font-weight:400;color:var(--muted);letter-spacing:0;
-  animation:fadeUp 0.7s ease both;animation-delay:0.35s;
-  margin-bottom:1.2rem;display:block;
-}
-.grad-text{
-  background:linear-gradient(135deg,#6c63ff,#a78bfa,#38bdf8);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(246,244,239,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 28px; max-width: 1080px; margin:0 auto;
+  }
+  .mark{
+    display:flex; align-items:center; gap:10px;
+    font-weight:600; font-size:1rem; letter-spacing:0.5px;
+  }
+  .mark .glyph{
+    width:34px; height:34px; border:1px solid var(--brass);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Markazi Text',serif; font-size:1.25rem; color:var(--brass);
+    border-radius:2px;
+  }
+  nav ul{ list-style:none; display:flex; gap:32px; margin:0; padding:0; }
+  nav a{ text-decoration:none; font-size:0.88rem; font-weight:500; color: var(--ink); position:relative; }
+  nav a::after{
+    content:""; position:absolute; right:0; bottom:-4px; width:0; height:1px;
+    background: var(--brass); transition: width 0.25s ease;
+  }
+  nav a:hover::after{ width:100%; }
+  @media (max-width:760px){ nav ul{ gap:16px; } nav a{ font-size:0.78rem; } }
 
-.hero-desc{
-  color:var(--muted);font-size:1.05rem;line-height:1.8;
-  max-width:480px;margin-bottom:2.5rem;
-  animation:fadeUp 0.7s ease both;animation-delay:0.45s;
-}
-.hero-desc strong{color:var(--white);}
+  /* ---------- HERO ---------- */
+  .hero{ padding: 90px 0 70px; border-bottom:1px solid var(--line); }
+  .kicker{
+    font-family:'JetBrains Mono',monospace; direction:ltr; display:inline-block;
+    font-size:0.75rem; letter-spacing:2px; color: var(--brass);
+    text-transform:uppercase; margin-bottom:22px;
+    padding-bottom:8px; border-bottom: 1px solid var(--line);
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    margin: 0 0 20px; font-weight:600; line-height:1.1;
+  }
+  .hero h1 em{ font-style:normal; color: var(--brass); }
+  .hero p.lead{
+    font-size: 1.1rem; color: var(--muted); max-width: 620px;
+    line-height:1.85; margin-bottom: 34px;
+  }
+  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:0.92rem; font-weight:600;
+    padding: 14px 28px; text-decoration:none;
+    border: 1px solid var(--ink); border-radius: 2px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ background: var(--brass); border-color: var(--brass); }
+  .btn-ghost{ background:transparent; color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--brass); color: var(--brass); }
 
-.hero-btns{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  animation:fadeUp 0.7s ease both;animation-delay:0.55s;
-}
-.btn-main{
-  background:var(--accent);color:#fff;border:none;
-  padding:0.9rem 2rem;border-radius:10px;
-  font-family:"Tajawal",sans-serif;font-size:1rem;font-weight:700;
-  cursor:pointer;text-decoration:none;display:inline-flex;
-  align-items:center;gap:0.5rem;transition:all 0.3s;
-}
-.btn-main:hover{background:#5b52e8;transform:translateY(-3px);box-shadow:0 12px 35px rgba(108,99,255,0.4);}
-.btn-gh{
-  background:transparent;color:var(--white);
-  border:1px solid rgba(255,255,255,0.12);
-  padding:0.9rem 2rem;border-radius:10px;
-  font-family:"Tajawal",sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;text-decoration:none;transition:all 0.3s;
-  display:inline-flex;align-items:center;gap:0.5rem;
-}
-.btn-gh:hover{border-color:rgba(255,255,255,0.35);transform:translateY(-3px);}
-.btn-gh svg{width:18px;height:18px;fill:currentColor;}
+  .hero-meta{
+    margin-top: 56px; display:grid; grid-template-columns: repeat(4,1fr);
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta div{ padding: 18px 0; border-left: 1px solid var(--line); text-align:center; }
+  .hero-meta div:last-child{ border-left:none; }
+  .hero-meta b{ display:block; font-family:'Markazi Text',serif; font-size:1.8rem; color: var(--brass); }
+  .hero-meta span{ font-size:0.72rem; color: var(--muted); letter-spacing:0.3px; }
+  @media (max-width:640px){ .hero-meta{ grid-template-columns: repeat(2,1fr); } .hero-meta div{ border-left:1px solid var(--line); border-bottom:1px solid var(--line);} }
 
-/* PHOTO / LOGO */
-.hero-photo-side{animation:fadeUp 0.7s ease both;animation-delay:0.3s;}
-.photo-container{
-  position:relative;width:260px;height:260px;margin:0 auto;
-}
-.photo-ring{
-  position:absolute;inset:-3px;
-  background:linear-gradient(135deg,#6c63ff,#38bdf8,#a78bfa,#6c63ff);
-  border-radius:50%;animation:rotateGrad 4s linear infinite;
-  background-size:300% 300%;
-}
-@keyframes rotateGrad{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-.photo-inner{
-  position:absolute;inset:3px;border-radius:50%;overflow:hidden;
-  background:var(--card);
-  display: flex; align-items: center; justify-content: center;
-}
-.photo-inner img{
-  width:90%;height:90%;object-fit:contain;display:block;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-}
-.photo-glow{
-  position:absolute;inset:-30px;
-  background:radial-gradient(ellipse,rgba(108,99,255,0.2) 0%,transparent 65%);
-  border-radius:50%;z-index:-1;
-}
+  /* ---------- SECTION HEAD ---------- */
+  section{ padding: 80px 0; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 48px; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+  .section-head h2{ font-family:'Markazi Text',serif; font-size:2.1rem; margin:0; font-weight:600; }
+  .section-head .idx{ font-family:'JetBrains Mono',monospace; direction:ltr; font-size:0.8rem; color: var(--muted); }
 
-.badge{
-  position:absolute;background:rgba(12,12,18,0.9);
-  border:1px solid var(--border);border-radius:14px;
-  padding:0.75rem 1.1rem;backdrop-filter:blur(20px);
-  font-size:0.78rem;font-weight:700;z-index:5;
-}
-.badge-val{font-size:1.4rem;font-weight:900;color:var(--accent2);display:block;line-height:1;}
-.badge-lbl{color:var(--muted);font-size:0.72rem;margin-top:0.15rem;}
-.badge-left{top:-18px;left:-24px;}
-.badge-right{bottom:-18px;right:-24px;}
+  /* ---------- SKILLS ---------- */
+  .skills-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .skill{
+    font-family:'JetBrains Mono',monospace; direction:ltr;
+    font-size:0.82rem; padding: 9px 16px;
+    border:1px solid var(--line); border-radius: 2px;
+    background: #fff;
+  }
 
-/* STATS BAR */
-.stats-bar{
-  padding:2.5rem 3rem;border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);background:var(--surface);
-}
-.stats-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:2rem;text-align:center;
-}
-.stat-n{
-  font-family:"Space Grotesk",sans-serif;font-size:2.6rem;font-weight:700;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.stat-l{color:var(--muted);font-size:0.85rem;margin-top:0.25rem;}
+  /* ---------- PROJECTS (index list) ---------- */
+  .project{
+    display:grid; grid-template-columns: 70px 1fr auto;
+    gap: 24px; align-items:start;
+    padding: 30px 0; border-bottom: 1px solid var(--line);
+  }
+  .project:first-child{ padding-top:0; }
+  @media (max-width:760px){ .project{ grid-template-columns: 1fr; gap:10px; } }
+  .project .num{ font-family:'JetBrains Mono',monospace; direction:ltr; color: var(--brass); font-size:0.95rem; padding-top:4px; }
+  .project h3{ font-family:'Markazi Text',serif; font-size:1.55rem; margin: 0 0 8px; font-weight:600; }
+  .project p{ color: var(--muted); font-size:0.92rem; line-height:1.75; margin:0 0 12px; max-width:560px; }
+  .project .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .project .tag{ font-family:'JetBrains Mono',monospace; direction:ltr; font-size:0.68rem; color: var(--muted); border:1px solid var(--line); padding: 3px 9px; border-radius:2px; }
+  .project .status{
+    font-size:0.7rem; font-family:'JetBrains Mono',monospace; direction:ltr;
+    padding: 4px 10px; border-radius: 20px; white-space:nowrap; height:fit-content;
+    border:1px solid var(--line);
+  }
+  .status-live{ color:#2f7d3f; border-color:#2f7d3f33; background:#2f7d3f0d; }
+  .status-done{ color: var(--brass); border-color: var(--brass); background: #b28a3d0d; }
+  .project .case-link{ display:inline-block; margin-top:6px; font-size:0.82rem; font-weight:600; color: var(--ink); text-decoration:none; border-bottom:1px solid var(--brass); }
+  .project .case-link.disabled{ color: var(--muted); border-bottom-color: var(--line); cursor:default; }
 
-/* SECTIONS */
-section{padding:6rem 3rem;}
-.sec-inner{max-width:1200px;margin:0 auto;}
-.sec-tag{
-  font-size:0.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;
-  color:var(--accent2);margin-bottom:0.7rem;
-  display:flex;align-items:center;gap:0.5rem;
-}
-.sec-tag::after{content:'';flex:1;height:1px;background:var(--border);max-width:60px;}
-.sec-title{
-  font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;
-  margin-bottom:0.8rem;line-height:1.15;
-}
-.sec-sub{color:var(--muted);font-size:1rem;max-width:460px;line-height:1.7;margin-bottom:3.5rem;}
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    background: var(--ink); color: var(--paper);
+    padding: 64px 40px; text-align:center; border-radius: 2px;
+    position: relative;
+  }
+  .contact-panel .kicker{ color: var(--brass-soft); border-color: var(--line-dark); }
+  .contact-panel h2{ font-family:'Markazi Text',serif; font-size: clamp(1.9rem,4vw,2.8rem); margin: 0 0 14px; font-weight:600; }
+  .contact-panel p{ color: #c9cdd3; margin-bottom: 30px; }
+  .contact-panel .btn-primary{ background: var(--brass); border-color: var(--brass); color: var(--ink); }
+  .contact-panel .btn-primary:hover{ background: var(--brass-soft); border-color: var(--brass-soft); }
+  .contact-panel .btn-ghost{ color: var(--paper); border-color: var(--line-dark); }
+  .contact-panel .btn-ghost:hover{ border-color: var(--brass-soft); color: var(--brass-soft); }
 
-/* SERVICES */
-.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;}
-.srv-card{
-  background:var(--card);border:1px solid var(--border);border-radius:18px;
-  padding:2rem 1.8rem;transition:all 0.35s;cursor:default;
-}
-.srv-card:hover{transform:translateY(-7px);border-color:rgba(108,99,255,0.4);box-shadow:0 24px 48px rgba(0,0,0,0.4);}
-.srv-ico{font-size:2rem;margin-bottom:1.2rem;}
-.srv-t{font-family:"Space Grotesk",sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.5rem;}
-.srv-d{color:var(--muted);font-size:0.87rem;line-height:1.65;}
+  footer{ text-align:center; padding: 30px 20px; color: var(--muted); font-size:0.78rem; }
 
-/* ORDER SECTION (طلبات) */
-.order-card{
-  background:linear-gradient(145deg, #0f0f1a, #09090e);
-  border:1px solid var(--border);
-  border-radius:32px;
-  padding:2.5rem;
-  margin-top: 1rem;
-}
-.price-badge{
-  background:rgba(108,99,255,0.2);
-  display:inline-block;
-  padding:0.3rem 1rem;
-  border-radius:40px;
-  font-size:0.85rem;
-  border:1px solid rgba(108,99,255,0.5);
-  color:var(--accent2);
-  margin-bottom:1.5rem;
-}
-.order-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.5rem;
-}
-.order-form .full-width{
-  grid-column:span 2;
-}
-.input-group label{
-  display:block;
-  font-size:0.8rem;
-  color:var(--muted);
-  margin-bottom:0.5rem;
-}
-.input-group input, .input-group select, .input-group textarea{
-  width:100%;
-  background:var(--card2);
-  border:1px solid var(--border);
-  padding:0.8rem 1rem;
-  border-radius:14px;
-  color:var(--white);
-  font-family:"Tajawal",sans-serif;
-  font-size:0.9rem;
-  transition:0.2s;
-}
-.input-group input:focus, .input-group select:focus, .input-group textarea:focus{
-  outline:none;
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(108,99,255,0.2);
-}
-.price-preview{
-  background:var(--card);
-  border-radius:20px;
-  padding:1rem 1.5rem;
-  text-align:center;
-  border:1px solid var(--border);
-  margin-top:0.5rem;
-}
-.price-preview span{
-  font-size:1.8rem;
-  font-weight:800;
-  background:linear-gradient(135deg,#fff,var(--accent2));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-.submit-order{
-  background:var(--accent);
-  border:none;
-  padding:1rem;
-  border-radius:40px;
-  font-size:1rem;
-  font-weight:bold;
-  color:white;
-  cursor:pointer;
-  transition:0.2s;
-  width:100%;
-  margin-top:1rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.7rem;
-}
-.submit-order:hover{
-  background:#7c73ff;
-  transform:scale(0.98);
-}
-
-/* Projects */
-.prj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.3rem;}
-.prj-card{
-  background:var(--card2);border:1px solid var(--border);border-radius:18px;
-  overflow:hidden;transition:all 0.35s;
-}
-.prj-card:hover{transform:translateY(-7px);border-color:rgba(108,99,255,0.4);}
-.prj-thumb{
-  height:140px;display:flex;align-items:center;justify-content:center;
-  font-size:2.5rem;position:relative;
-}
-.t1{background:linear-gradient(135deg,#0d1f15,#143322);}
-.t2{background:linear-gradient(135deg,#120d1f,#1e1033);}
-.t3{background:linear-gradient(135deg,#0d1320,#132233);}
-.prj-body{padding:1.5rem;}
-.prj-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem;}
-.ptag{
-  background:rgba(108,99,255,0.08);border:1px solid rgba(108,99,255,0.2);
-  border-radius:100px;padding:0.18rem 0.7rem;font-size:0.7rem;color:var(--accent2);
-}
-.prj-name{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:0.45rem;}
-.prj-desc{color:var(--muted);font-size:0.85rem;line-height:1.6;}
-
-/* SKILLS */
-.sk-grid{display:flex;flex-wrap:wrap;gap:0.8rem;}
-.sk-pill{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:100px;padding:0.55rem 1.3rem;
-  font-size:0.88rem;font-weight:600;display:flex;align-items:center;gap:0.45rem;
-  transition:all 0.3s;cursor:default;
-}
-.sk-pill:hover{border-color:var(--accent);color:var(--accent2);transform:translateY(-2px);}
-
-/* CONTACT */
-#contact{background:var(--surface);}
-.cbox{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:28px;padding:4rem 3rem;text-align:center;
-  max-width:640px;margin:0 auto;position:relative;overflow:hidden;
-}
-.cbox h2{font-family:"Space Grotesk",sans-serif;font-size:2rem;margin-bottom:0.8rem;}
-.cbox p{color:var(--muted);margin-bottom:2.5rem;}
-.clinks{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.clink{
-  background:rgba(255,255,255,0.04);border:1px solid var(--border);
-  border-radius:12px;padding:0.9rem 1.6rem;
-  color:var(--white);text-decoration:none;font-weight:600;
-  display:flex;align-items:center;gap:0.55rem;transition:0.3s;
-}
-.clink:hover{border-color:var(--accent);color:var(--accent2);transform:translateY(-3px);}
-.clink-wa{background:rgba(37,211,102,0.06);border-color:rgba(37,211,102,0.2);}
-.clink-wa:hover{border-color:#25d366;color:#25d366;}
-
-footer{
-  padding:2rem 3rem;text-align:center;
-  border-top:1px solid var(--border);color:var(--muted);font-size:0.82rem;
-}
-footer span{color:var(--accent2);}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(28px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.rev{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.rev.vis{opacity:1;transform:none;}
-
-@media(max-width:768px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;}
-  .hero{padding:6rem 1.5rem 3rem;}
-  .hero-inner{grid-template-columns:1fr;gap:3rem;text-align:center;}
-  .hero-photo-side{order:-1;}
-  .photo-container{width:180px;height:180px;}
-  .hero-btns{justify-content:center;}
-  .hero-desc{margin:0 auto 2.5rem;}
-  .order-form{grid-template-columns:1fr;}
-  .order-form .full-width{grid-column:span 1;}
-  .stats-inner{grid-template-columns:repeat(2,1fr);}
-  section{padding:4rem 1.5rem;}
-  .cbox{padding:2.5rem 1.5rem;}
-}
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .btn, nav a::after{ transition:none; }
+  }
 </style>
 </head>
 <body>
 
-<div class="cursor-glow" id="cglow"></div>
+<header>
+  <div class="nav">
+    <div class="mark"><span class="glyph">م</span> Malik El-Bialy</div>
+    <nav>
+      <ul>
+        <li><a href="#skills">المهارات</a></li>
+        <li><a href="#projects">الأعمال</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<nav>
-  <div class="nav-logo"><span class="nav-logo-dot"></span> MALIK.DEV</div>
-  <ul class="nav-links">
-    <li><a href="#services">الخدمات</a></li>
-    <li><a href="#order">الطلب</a></li>
-    <li><a href="#projects">المشاريع</a></li>
-    <li><a href="#contact">تواصل</a></li>
-  </ul>
-</nav>
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker">Software Developer — Tanta, Egypt</span>
+      <h1>مالك البيلي <em>— لوكا</em></h1>
+      <p class="lead">مطوّر مستقل بيبني مواقع تجارة إلكترونية، تطبيقات موبايل، ولوحات تحكم إدارية من الصفر — بحلول تقنية حقيقية شغّالة، مش مجرد واجهات. كل مشروع بيتسلّم متكامل: تصميم، ربط قاعدة بيانات، وتشغيل فعلي.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">استعرض الأعمال</a>
+        <a href="#contact" class="btn btn-ghost">تواصل معايا</a>
+      </div>
 
-<section class="hero">
-  <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-chip"><span class="chip-dot"></span> متاح للمشاريع الجديدة ✦</div>
-      <h1 class="hero-name"><span class="grad-text">Malik El-Bialy</span></h1>
-      <span class="hero-name-ar">مالك البيلي — مطوّر تطبيقات ومواقع</span>
-      <p class="hero-desc">
-        عمري <strong>14 سنة</strong> وبطوّر تجارب رقمية احترافية 💻<br>
-        من المتاجر الإلكترونية والتطبيقات ولوحات التحكم — بجودة وسرعة وتسليم مضمون.
-      </p>
-      <div class="hero-btns">
-        <a href="#order" class="btn-main">اطلب مشروعك الآن ⚡</a>
-        <a href="https://github.com/malikelbialy" target="_blank" class="btn-gh">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
+      <div class="hero-meta">
+        <div><b>9+</b><span>مشروع مكتمل</span></div>
+        <div><b>8</b><span>تقنيات أساسية</span></div>
+        <div><b>3</b><span>قطاعات: تجارة، دين، رياضة</span></div>
+        <div><b>100%</b><span>مشاريع مُسلّمة وشغّالة</span></div>
       </div>
     </div>
-    <div class="hero-photo-side">
-      <div class="photo-container">
-        <div class="photo-glow"></div>
-        <div class="photo-ring"></div>
-        <div class="photo-inner">
-          <img src="Black and White Gradient Bold Modern Abstract Programmer Logo (1).png" alt="Malik El-Bialy Logo">
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>المهارات التقنية</h2>
+        <span class="idx">01 / STACK</span>
+      </div>
+      <div class="skills-row">
+        <span class="skill">Flutter / Dart</span>
+        <span class="skill">HTML / CSS / JavaScript</span>
+        <span class="skill">Firebase</span>
+        <span class="skill">Supabase</span>
+        <span class="skill">SQLite</span>
+        <span class="skill">Python / Flask</span>
+        <span class="skill">Telegram Bot API</span>
+        <span class="skill">OpenStreetMap / OSRM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>الأعمال</h2>
+        <span class="idx">02 / SELECTED WORK</span>
+      </div>
+
+      <div class="project">
+        <span class="num">01</span>
+        <div>
+          <h3>محمصة الجابري</h3>
+          <p>منصة تجارة إلكترونية كاملة لمحمصة مكسرات بثلاث فروع في طنطا: موقع طلب للعملاء، لوحة تحكم إدارية، وصفحة منيو منفصلة — تسعير بالوزن، تحديد الفرع تلقائيًا بالموقع الجغرافي، وإشعارات تليجرام فورية لكل طلب.</p>
+          <div class="tags"><span class="tag">Supabase</span><span class="tag">Telegram Bot</span><span class="tag">Geolocation</span><span class="tag">GitHub Pages</span></div>
         </div>
-        <div class="badge badge-left"><span class="badge-val">10+</span><span class="badge-lbl">مشروع منجز</span></div>
-        <div class="badge badge-right"><span class="badge-val">2+</span><span class="badge-lbl">سنين خبرة</span></div>
+        <span class="status status-done">Complete</span>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="rev"><div class="stat-n">10+</div><div class="stat-l">مشروع منجز</div></div>
-    <div class="rev"><div class="stat-n">5+</div><div class="stat-l">عميل راضي</div></div>
-    <div class="rev"><div class="stat-n">4</div><div class="stat-l">لغات برمجة</div></div>
-    <div class="rev"><div class="stat-n">14</div><div class="stat-l">عمر المطور 🔥</div></div>
-  </div>
-</div>
-
-<section id="services">
-  <div class="sec-inner">
-    <p class="sec-tag rev">SERVICES</p>
-    <h2 class="sec-title rev">إيه اللي بقدر أعمله ليك؟</h2>
-    <p class="sec-sub rev">حلول رقمية متكاملة بأسعار تنافسية تبدأ من 200 ريال</p>
-    <div class="srv-grid">
-      <div class="srv-card rev"><div class="srv-ico">🌐</div><div class="srv-t">مواقع ويب</div><p class="srv-d">مواقع احترافية سريعة ومتوافقة مع الجوال، بإمكانيات متطورة.</p></div>
-      <div class="srv-card rev"><div class="srv-ico">📱</div><div class="srv-t">تطبيقات Flutter</div><p class="srv-d">تطبيقات أندرويد قوية بواجهات سلسة وأداء عالي.</p></div>
-      <div class="srv-card rev"><div class="srv-ico">⚙️</div><div class="srv-t">لوحات تحكم Admin</div><p class="srv-d">أنظمة إدارة متكاملة للمحتوى والطلاب والمستخدمين.</p></div>
-      <div class="srv-card rev"><div class="srv-ico">🛍️</div><div class="srv-t">متاجر إلكترونية</div><p class="srv-d">متاجر عربية كاملة بإدارة منتجات وطلبات وكوبونات.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- قسم الطلب المخصص (إنشاء ويب أو تطبيق) -->
-<section id="order">
-  <div class="sec-inner">
-    <p class="sec-tag rev">START YOUR PROJECT</p>
-    <h2 class="sec-title rev">اطلب موقعك أو تطبيقك الآن</h2>
-    <p class="sec-sub rev">أسعار تنافسية تبدأ من 200 ريال سعودي. املأ النموذج وسأتواصل معك خلال ساعات.</p>
-    
-    <div class="order-card rev">
-      <div class="price-badge">💰 الأسعار تبدأ من 200 ريال سعودي</div>
-      <form id="orderForm">
-        <div class="order-form">
-          <div class="input-group full-width">
-            <label>الاسم بالكامل</label>
-            <input type="text" id="clientName" placeholder="أدخل اسمك" required>
-          </div>
-          <div class="input-group">
-            <label>نوع المشروع</label>
-            <select id="projectType">
-              <option value="website">موقع ويب ( Website )</option>
-              <option value="app">تطبيق Flutter ( Mobile App )</option>
-              <option value="admin">لوحة تحكم ( Admin Panel )</option>
-              <option value="ecommerce">متجر إلكتروني ( E‑commerce )</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>رقم واتساب للتواصل</label>
-            <input type="tel" id="clientPhone" placeholder="مثال: 9665xxxxxxxx" required>
-          </div>
-          <div class="input-group full-width">
-            <label>تفاصيل إضافية عن المشروع</label>
-            <textarea rows="3" id="projectDetails" placeholder="اكتب فكرتك، الميزات المطلوبة، أو أي شيء تريد إضافته"></textarea>
-          </div>
+      <div class="project">
+        <span class="num">02</span>
+        <div>
+          <h3>Behind the Goal — ورا الهدف</h3>
+          <p>تطبيق ويب رياضي يعرض المباريات الحيّة والمواعيد وترتيب الدوريات وهدافي البطولات، مع بحث عن الفرق ومقارنة مباشرة بين أي فريقين.</p>
+          <div class="tags"><span class="tag">API-Football</span><span class="tag">JavaScript</span></div>
         </div>
-        <div class="price-preview" id="pricePreview">السعر التقديري: <span>200 ريال</span></div>
-        <button type="submit" class="submit-order">📩 إرسال الطلب عبر واتساب</button>
-      </form>
-    </div>
-  </div>
-</section>
+        <span class="status status-done">Complete</span>
+      </div>
 
-<section id="projects">
-  <div class="sec-inner">
-    <p class="sec-tag rev">PROJECTS</p>
-    <h2 class="sec-title rev">شغل حقيقي لعملاء حقيقيين</h2>
-    <div class="prj-grid">
-      <div class="prj-card rev"><div class="prj-thumb t1">🌿</div><div class="prj-body"><div class="prj-tags"><span class="ptag">Flutter</span><span class="ptag">Firebase</span></div><div class="prj-name">روض — منصة حفظ القرآن</div><p class="prj-desc">لوجين الطلاب، سجل الحفظ، متابعة الختمة، ولوحة تحكم كاملة</p></div></div>
-      <div class="prj-card rev"><div class="prj-thumb t2">👗</div><div class="prj-body"><div class="prj-tags"><span class="ptag">HTML/JS</span><span class="ptag">Firebase</span></div><div class="prj-name">نِعَم Store — متجر أزياء</div><p class="prj-desc">إدارة منتجات، طلبات، كوبونات، نظام ثنائي اللغة</p></div></div>
-      <div class="prj-card rev"><div class="prj-thumb t3">📿</div><div class="prj-body"><div class="prj-tags"><span class="ptag">Flutter</span><span class="ptag">SQLite</span></div><div class="prj-name">Deny — تطبيق إسلامي</div><p class="prj-desc">قرآن، أذكار، سبحة، أوقات الصلاة، نقاط يومية</p></div></div>
-    </div>
-  </div>
-</section>
+      <div class="project">
+        <span class="num">03</span>
+        <div>
+          <h3>روض — Rawda</h3>
+          <p>منصة لحفظ القرآن الكريم يديرها شيخ لمتابعة طلابه: تسجيل الحفظ، متابعة ختمات القرآن، إدارة الاشتراكات، ولوحة تحكم إدارية كاملة.</p>
+          <div class="tags"><span class="tag">Firebase</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
 
-<section id="skills">
-  <div class="sec-inner">
-    <p class="sec-tag rev">SKILLS</p>
-    <div class="sk-grid rev">
-      <div class="sk-pill">⚡ Flutter & Dart</div><div class="sk-pill">🌐 HTML & CSS</div><div class="sk-pill">✨ JavaScript</div>
-      <div class="sk-pill">🔥 Firebase</div><div class="sk-pill">🗄️ Firestore</div><div class="sk-pill">🐍 Python</div>
-      <div class="sk-pill">📱 Android Dev</div><div class="sk-pill">🛍️ E-commerce</div><div class="sk-pill">🔒 Auth Systems</div>
-      <div class="sk-pill">⚙️ Admin Panels</div><div class="sk-pill">🌍 Arabic RTL</div><div class="sk-pill">🔗 REST APIs</div>
-    </div>
-  </div>
-</section>
+      <div class="project">
+        <span class="num">04</span>
+        <div>
+          <h3>نِعَم | Neam Store</h3>
+          <p>متجر أزياء إلكتروني ثنائي اللغة (عربي/إنجليزي)، تم ترحيله من التخزين المحلي إلى Firestore، ومنشور فعليًا على Netlify.</p>
+          <div class="tags"><span class="tag">Firebase Firestore</span><span class="tag">Netlify</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
 
-<section id="contact">
-  <div class="sec-inner">
-    <div class="cbox rev">
-      <h2>خلينا نشتغل مع بعض 🤝</h2>
-      <p>عندك فكرة أو مشروع؟ تواصل معي وهنعمل حاجة تفتخر بيها!</p>
-      <div class="clinks">
-        <a href="https://wa.me/966547308744" class="clink clink-wa" target="_blank">💬 واتساب</a>
-        <a href="https://github.com/malikelbialy" class="clink" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a>
-        <a href="tel:+966547308744" class="clink">📞 اتصل بي</a>
+      <div class="project">
+        <span class="num">05</span>
+        <div>
+          <h3>Deny</h3>
+          <p>تطبيق إسلامي متكامل بـ Flutter: قارئ قرآن، أذكار، سبحة إلكترونية، ومواقيت الصلاة، مع حفظ بيانات محلي بالكامل.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">SQLite</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
+
+      <div class="project">
+        <span class="num">06</span>
+        <div>
+          <h3>بيت الممبار</h3>
+          <p>موقع طلبات لمحل بيت الممبار، يربط الأوردر مباشرة بواتساب لتسهيل التواصل بين العميل والمحل.</p>
+          <div class="tags"><span class="tag">WhatsApp Orders</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
+
+      <div class="project">
+        <span class="num">07</span>
+        <div>
+          <h3>بونبولين</h3>
+          <p>موقع طلب أونلاين لمحل حلويات، بنفس آلية الربط المباشر مع واتساب لاستلام الطلبات بسرعة.</p>
+          <div class="tags"><span class="tag">WhatsApp Orders</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
+
+      <div class="project">
+        <span class="num">08</span>
+        <div>
+          <h3>Social X</h3>
+          <p>تطبيق سوشيال ميديا بـ Flutter وFirebase: فيد لحظي، Stories، دردشة مباشرة، ولوحة تحكم للإدمن.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
+
+      <div class="project">
+        <span class="num">09</span>
+        <div>
+          <h3>تطبيق الخرائط</h3>
+          <p>تطبيق خرائط كامل بـ Flutter/Dart باستخدام OpenStreetMap وNominatim وOSRM، من غير أي مفتاح API مدفوع.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">OpenStreetMap</span><span class="tag">OSRM</span></div>
+        </div>
+        <span class="status status-done">Complete</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <span class="kicker">Let's work together</span>
+        <h2>عندك مشروع محتاج يتنفذ؟</h2>
+        <p>ابعتلي تفاصيل المشروع، وهنتكلم في الفكرة والتنفيذ.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a href="tel:+201125523286" class="btn btn-primary">اتصل: 011 2552 3286</a>
+          <a href="https://wa.me/201125523286" class="btn btn-ghost" target="_blank" rel="noopener">واتساب</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<footer>Built with ❤️ by programmer <span>Malik El-Bialy</span> · 📱 +966 54 730 8744</footer>
+  </section>
+</main>
 
-<script>
-// سعر كل خدمة ابتداءً من 200 ريال مع زيادة حسب التعقيد (ديناميكي قابل للتعديل)
-const priceMap = {
-  website: 200,
-  app: 350,
-  admin: 450,
-  ecommerce: 600
-};
+<footer>
+  Built with ❤️ by programmer Malik El-Bialy · 📱 +20 11 25523286
+</footer>
 
-const projectTypeSelect = document.getElementById('projectType');
-const priceSpan = document.querySelector('#pricePreview span');
-
-function updatePrice() {
-  const type = projectTypeSelect.value;
-  let base = priceMap[type] || 200;
-  priceSpan.innerText = base + ' ريال';
-}
-projectTypeSelect.addEventListener('change', updatePrice);
-updatePrice();
-
-// إرسال الطلب عبر واتساب مع البيانات
-const form = document.getElementById('orderForm');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const name = document.getElementById('clientName').value.trim();
-  const phone = document.getElementById('clientPhone').value.trim();
-  const projectType = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
-  const details = document.getElementById('projectDetails').value.trim();
-  const price = priceSpan.innerText;
-  
-  if(!name || !phone) {
-    alert("الرجاء إدخال الاسم ورقم الجوال");
-    return;
-  }
-  
-  let message = `🚀 *طلب مشروع جديد* 🚀%0A%0A`;
-  message += `*الاسم:* ${name}%0A`;
-  message += `*نوع المشروع:* ${projectType}%0A`;
-  message += `*السعر التقديري:* ${price}%0A`;
-  message += `*رقم واتساب:* ${phone}%0A`;
-  if(details) message += `*التفاصيل:* ${details}%0A`;
-  message += `%0Aأحتاج استشارة ومباشرة العمل.`;
-  
-  const whatsappUrl = `https://wa.me/966547308744?text=${message}`;
-  window.open(whatsappUrl, '_blank');
-});
-
-// Cursor and scroll reveal
-const glow = document.getElementById("cglow");
-document.addEventListener("mousemove", e => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
-
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("vis"); obs.unobserve(entry.target); } });
-}, {threshold: 0.1});
-document.querySelectorAll(".rev").forEach((el, i) => {
-  el.style.transitionDelay = (i % 6) * 0.07 + "s";
-  obs.observe(el);
-});
-</script>
 </body>
 </html>
